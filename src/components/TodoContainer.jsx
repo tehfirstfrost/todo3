@@ -1,26 +1,27 @@
 
 
-import React from "react"
-import { TodoList, Header } from "./index";
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
+import { TodoList, Header, InputTodo } from "./index";
 
 
 export class TodoContainer extends React.Component {
     state = {
         todos: [
             {
-                id: 1,
+                id: uuidv4(),
                 title: "this is the first",
                 completed: false
             },
             {
-                id: 2,
+                id: uuidv4(),
                 title: "ths is the second",
                 completed: false
             },
             {
-                id: 3,
+                id: uuidv4(),
                 title: "this is the third",
-                completed: true
+                completed: false
             }
         ]
     };
@@ -34,17 +35,49 @@ export class TodoContainer extends React.Component {
                         completed: !todo.completed,
                     }
                 }
+                
                 return todo
+                
             }),
         }))
     }
 
+    deleteTodo = (id) => {
+        this.setState({
+            todos: [
+                ...this.state.todos.filter(todo => {
+                    return todo.id !== id;
+                })
+            ]
+        })
+    }
+
+    addTodoItem = (title) =>{
+        const newTodo = {
+            id: uuidv4(),
+            title: title,
+            completed: false
+        }
+        this.setState({
+            todos: [...this.state.todos, newTodo]
+        })
+        console.log(title)
+    }
+  
+
     render(){
         return(
-            <>
-            <Header />
-            <TodoList todos={this.state.todos} handleChange={this.handleChange}/>         
-            </>
+            <div className="container">
+                <div className="inner">
+                    <Header />
+                    <InputTodo addTodoItem={this.addTodoItem}/>
+                    <TodoList 
+                        todos={this.state.todos} 
+                        handleChange={this.handleChange}
+                        deleteTodo={this.deleteTodo}
+                    />   
+                </div>
+            </div>
         )
     }
 }
