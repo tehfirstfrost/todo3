@@ -1,15 +1,14 @@
 
-.item-container{
-    max-width: 4000px;
-}
 
 .item{
     font-size: 1.2rem;
     list-style-type: none;
     padding: 17px 0px;
     border-bottom: 1px solid #eaeaea;
-  
+    /* max-width: 4000px; */
 }
+
+
 
 .checkbox{
     /* margin-right: 15px; */
@@ -34,5 +33,11 @@
     border-radius: 100px;
     height: 50px;
     width: 50px;
-    margin: -10px 0 0 10px;
+    /* margin: -10px 0 0 10px; */
+}
+
+.text-input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
 }

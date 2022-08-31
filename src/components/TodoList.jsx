@@ -14,6 +14,7 @@ export class TodoList extends React.Component {
                     todo={todo} 
                     handleChange={this.props.handleChange}
                     deleteTodo={this.props.deleteTodo}
+                    setUpdate={this.props.setUpdate}
                 />
             ))}
             </div>
