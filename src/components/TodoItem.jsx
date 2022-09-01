@@ -1,11 +1,42 @@
 
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import './TodoItem.css'
 
 
 
 export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpdate }){
+    const [editable, setEditable] = useState(false);
+
+    useEffect(() => {
+        return () =>{console.log("cleaning")} 
+    }, [])
+
+    const handleEditing = () => {
+        setEditable(true)
+    }
+
+    const handleUpdateDone = (e) => {
+        if(e.key === "Enter"){
+            if(title.trim()){
+            setEditable(false)
+            console.log(e.key)
+            }else{
+                alert("Please enter an item")
+            }
+        }
+       
+    }
+
+    let viewMode = {};
+    let editMode = {};
+
+    if(editable){
+        viewMode.display = 'none'
+    }else{
+        editMode.display = 'none'
+    }
+
     const completeStyled = {
         fontStyle: 'italic',
         color: '#595959',
@@ -13,10 +44,11 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
         textDecoration: 'line-through'
     }
 
+    
     return(
-        <div>
-            {console.log( title)}
-        <li className="item">
+   
+        <li className="item" key={id}>
+            <div className="display-item" onDoubleClick={handleEditing} style={viewMode}>
                 <input 
                 className="checkbox"
                 type="checkbox" 
@@ -26,11 +58,18 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
                 <button onClick={() => deleteTodo(id)}>Delete</button>
                 <span style={checked ? completeStyled : null}>
                     {title}
-                </span>
+                </span> 
+            </div>
+            <input 
+                type='text'
+                className='text-input'
+                style={editMode}
+                value={title}
+                onChange={(e) => setUpdate(e.target.value, id)}
+                onKeyDown={handleUpdateDone}
+                
+            />
         </li>
-        </div>
-
-
     )
 }
 

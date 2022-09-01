@@ -2,10 +2,11 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import { useState, useEffect } from 'react'
-import { Header, InputTodo, TodoList} from './index'
+import { Header, InputTodo, TodoList, SearchItem} from './index'
 
 export const TodoContainer = () =>{
     const [todos, setTodos] = useState(getInitialStored());
+    const [search, setSearch] = useState('');
     // const [todos, setTodos] = useState([
     //     {
     //         id: uuidv4(),
@@ -77,7 +78,7 @@ export const TodoContainer = () =>{
     }
 
     const setUpdate = (updatedTitle, id) => {
-        setTodos([
+        setTodos(
             todos.map(todo => {
                 if(todo.id === id){
                     todo.title = updatedTitle
@@ -85,7 +86,7 @@ export const TodoContainer = () =>{
                 // console.log("setUpdate fn, input: ", id)
                 return todo
             })
-        ])
+        )
     }
 
 
@@ -95,8 +96,16 @@ export const TodoContainer = () =>{
             <div className="inner">
                 <Header />
                 <InputTodo addTodoItem={addTodoItem}/>
+                <SearchItem search={search} setSearch={setSearch} />
                 <TodoList
-                    todos={todos} 
+                    //pretest
+                    // todos={todos} 
+                    // handleChange={handleChange}
+                    // deleteTodo={deleteTodo}
+                    // setUpdate={setUpdate}
+
+                    //test
+                    todos={todos.filter(todo => ((todo.title).toLowerCase()).includes(search.toLocaleLowerCase()))} 
                     handleChange={handleChange}
                     deleteTodo={deleteTodo}
                     setUpdate={setUpdate}
