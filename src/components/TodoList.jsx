@@ -5,23 +5,12 @@ import React from "react"
 
 
 
-export const TodoList = ({todos, handleChange, deleteTodo, setUpdate}) => {
-    // const items = todos.map(todo => (
-    //     <TodoItem 
-    //         key={todo.id} 
-    //         id={todo.id}
-    //         checked={todo.completed} 
-    //         handleChange={handleChange}
-    //         deleteTodo={deleteTodo}
-    //         setUpdate={setUpdate}
-    //         title={todo.title}
-    //     />
-    // ))
-
-
+export const TodoList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
+ 
 
     return(
-    <div>
+    <main>
+        
         {todos.map(todo => (
             <TodoItem 
                 key={todo.id} 
@@ -33,7 +22,7 @@ export const TodoList = ({todos, handleChange, deleteTodo, setUpdate}) => {
                 title={todo.title}
             />
         ))}
-    </div>
+    </main>
     )
 }
 

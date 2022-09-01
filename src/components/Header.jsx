@@ -3,10 +3,10 @@
 
 
 
-export const Header = () => {
+export const Header = ({count}) => {
   return (
     <header>
-        <h1>TODO:</h1>
+        <h1>TODO: {count}</h1>
     </header>
   )
 }

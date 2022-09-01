@@ -2,11 +2,12 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import { useState, useEffect } from 'react'
-import { Header, InputTodo, TodoList, SearchItem} from './index'
+import { Header, InputTodo, TodoList, SearchItem, SortList} from './index'
 
 export const TodoContainer = () =>{
     const [todos, setTodos] = useState(getInitialStored());
     const [search, setSearch] = useState('');
+
     // const [todos, setTodos] = useState([
     //     {
     //         id: uuidv4(),
@@ -42,6 +43,10 @@ export const TodoContainer = () =>{
         const temp = JSON.stringify(todos);
         localStorage.setItem('todo', temp)
     }, [todos])
+
+    useEffect(() =>{
+
+    }, [setTodos])
 
     const handleChange = (id) =>{
         setTodos(prevState =>
@@ -94,26 +99,50 @@ export const TodoContainer = () =>{
     return(
         <div className="container">
             <div className="inner">
-                <Header />
+                <Header count={todos.length}/>
                 <InputTodo addTodoItem={addTodoItem}/>
                 <SearchItem search={search} setSearch={setSearch} />
-                <TodoList
-                    //pretest
-                    // todos={todos} 
-                    // handleChange={handleChange}
-                    // deleteTodo={deleteTodo}
-                    // setUpdate={setUpdate}
 
-                    //test
+                {/* pretest */}
+                {/* {todos.length ? (
+                <TodoList
                     todos={todos.filter(todo => ((todo.title).toLowerCase()).includes(search.toLocaleLowerCase()))} 
                     handleChange={handleChange}
                     deleteTodo={deleteTodo}
                     setUpdate={setUpdate}
-                />   
+                />  
+                )
+                :( <p style={{marginTop: '6rem', textAlign: 'center'}}>Your List is empty </p>)} */}
+
+{/*             test                              */}
+                <SortList 
+                    todos={todos.filter(todo => ((todo.title).toLowerCase()).includes(search.toLocaleLowerCase()))} 
+                    handleChange={handleChange}
+                    deleteTodo={deleteTodo}
+                    setUpdate={setUpdate}
+                />
+
             </div>
         </div>
     )
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
