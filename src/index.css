@@ -95,3 +95,7 @@ header h3, .to-start{
     font-size: 15px;
     color: #ececec;
 }
+
+.counter{
+    float: right;
+}

@@ -48,15 +48,12 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
         fontStyle: 'italic',
         opacity: 0.4,
         textDecoration: 'line-through',
-        textAlign: 'left',
-        maxWidth: '600px',
-        marginRight: 'auto'
-
-
+        // textAlign: 'left',
+        // marginRight: 'auto'
     }
     const inprogressStyled = {
-        textAlign: 'left',
-        marginRight: 'auto'
+        // textAlign: 'left',
+        // marginRight: 'auto'
     }
 
     
@@ -68,21 +65,22 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
                     {title}
                 </div> 
                                                            
-                <div>
+                {/* <div> */}
                     {checked ?
-                    <label className="label" htmlFor="toggle"> 😃 </label>
+                    <label className="label" >✓</label>
                     :
-                    <label className="label" htmlFor="toggle">✓</label>
+                    <label className="label" >X</label>
                      }
+                     
                     <input 
                     type="checkbox" 
                     id="toggle" 
                     className="visually-hidden"
                     checked={checked}
-                    onChange={() => handleChange(id)}
+                    onChange={() =>{ console.log( "onchange" ,id); handleChange(id)}}
                     />
                     <div className="control-me"></div>
-                </div>
+                {/* </div> */}
                
                 <button onClick={() => deleteTodo(id)}><FaTrash style={{color: '#a72727', fontSize: '16px'}}/></button>
                

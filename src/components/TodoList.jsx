@@ -10,7 +10,7 @@ export const TodoList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
 
     return(
     <main>
-        
+        {console.log("todos from todolist", todos)}
         {todos.map(todo => (
             <TodoItem 
                 key={todo.id} 

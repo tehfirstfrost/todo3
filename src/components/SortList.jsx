@@ -26,6 +26,7 @@ export const SortList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
 
     return(
         <main style={{textAlign: 'center'}}> 
+        {console.log("columnFalse:", columnFalse)}
             {(columnFalse.length === 0 && columnTrue.length === 0) ?
             (<h3 style={styledEmpty} >Nothing "todo"</h3>):
             <section>
@@ -40,7 +41,7 @@ export const SortList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
             </div>
             
             <div style={{textAlign: 'left'}} >
-                
+            {console.log("columnTrue:", columnTrue)}
             <h2>{(columnTrue.length > 0) ? "Complete:" : " "} </h2> 
                 <TodoList 
                     todos={columnTrue}
