@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.aa18844c.css",
+    "main.js": "/static/js/main.6eb33352.js",
+    "static/media/nes_controller.webp": "/static/media/nes_controller.6a89bdf5a3112082ad9c.webp",
+    "index.html": "/index.html",
+    "main.aa18844c.css.map": "/static/css/main.aa18844c.css.map",
+    "main.6eb33352.js.map": "/static/js/main.6eb33352.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa18844c.css",
+    "static/js/main.6eb33352.js"
+  ]
+}
