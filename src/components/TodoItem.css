@@ -4,19 +4,7 @@
     list-style-type: none;
     padding: 17px 0px;
     border-bottom: 1px solid #eaeaea;
-    /* max-width: 4000px; */
 }
-
-
-/* .checkbox{
-    margin-left: auto;
-    flex-shrink: 0;
-    width: 😃45px;                        
-    height: 45px;                        
-    clip-path: circle(46% at 50% 50%);  
-} */
-
-/* ///////////////////////////////   */
 
 .control-me::after {
     content: "";
@@ -38,12 +26,8 @@
 
 .visually-hidden {
     position: absolute;
-    left: -100vw;
-    
-    
+    left: -100vw;    
 }
-
-/* //////////////////////////////   */
 
 .item button{
     font-size: 13px;
@@ -52,12 +36,10 @@
     flex-shrink: 0;
     border: none;
     cursor: pointer;
-    /* float: right; */
     outline: none;
     border-radius: 100px;
     height: 50px;
     width: 50px;
-    /* margin: -10px 0 0 10px; */
 }
 
 .text-input{

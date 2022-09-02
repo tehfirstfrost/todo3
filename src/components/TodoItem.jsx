@@ -67,16 +67,6 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
                  <div style={checked ? completeStyled : inprogressStyled}>
                     {title}
                 </div> 
-
-                
-                {/* <input 
-                className="checkbox"
-                type="checkbox" 
-                checked={checked}
-                onChange={() => handleChange(id)}
-                /> 
-                */}
-
                                                            
                 <div>
                     {checked ?

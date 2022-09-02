@@ -2,25 +2,12 @@
 
 import { v4 as uuidv4 } from 'uuid'
 import { useState, useEffect } from 'react'
-import { Header, InputTodo, TodoList, SearchItem, SortList} from './index'
+import { Header, InputTodo, SearchItem, SortList} from './index'
 
 export const TodoContainer = () =>{
     const [todos, setTodos] = useState(getInitialStored());
     const [search, setSearch] = useState('');
 
-    // const [todos, setTodos] = useState([
-    //     {
-    //         id: uuidv4(),
-    //         title: 'seeet',
-    //         completed: false
-    //     },
-    //     {
-    //         id: uuidv4(),
-    //         title: 'seeeeeet',
-    //         completed: true
-    //     }
-
-    // ])
     
     function getInitialStored(){
         const temp = localStorage.getItem('todo');
@@ -28,16 +15,6 @@ export const TodoContainer = () =>{
         return savedTodos || [];
     }
 
-    // useEffect(() =>{
-    //     const temp = localStorage.getItem('todo');
-    //     const loadedTodos = JSON.parse(temp);
-
-    //     if(loadedTodos){
-    //         setTodos(loadedTodos)
-    //     }
-    //     console.log("test effect")
-    //     console.log(todos)
-    // },[])
 
     useEffect(() =>{
         const temp = JSON.stringify(todos);
@@ -103,18 +80,6 @@ export const TodoContainer = () =>{
                 <InputTodo addTodoItem={addTodoItem}/>
                 <SearchItem search={search} setSearch={setSearch} />
                 <h5 style={{color: "#ececec"}}>Double click items to edit</h5>
-                {/* pretest */}
-                {/* {todos.length ? (
-                <TodoList
-                    todos={todos.filter(todo => ((todo.title).toLowerCase()).includes(search.toLocaleLowerCase()))} 
-                    handleChange={handleChange}
-                    deleteTodo={deleteTodo}
-                    setUpdate={setUpdate}
-                />  
-                )
-                :( <p style={{marginTop: '6rem', textAlign: 'center'}}>Your List is empty </p>)} */}
-
-{/*             test                              */}
                 <SortList 
                     todos={todos.filter(todo => ((todo.title).toLowerCase()).includes(search.toLocaleLowerCase()))} 
                     handleChange={handleChange}

@@ -1,10 +1,5 @@
 
 
-
-
-
-
-
 .home{
     display: flex;
     justify-content: center;
@@ -32,5 +27,4 @@
     background-color: black;
     flex-grow: 0;
     border-radius: 50px;
-    
 }
