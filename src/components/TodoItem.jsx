@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import './TodoItem.css'
-
+import {  FaTrash } from "react-icons/fa";
 
 
 export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpdate }){
@@ -28,7 +28,14 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
        
     }
 
-    let viewMode = {};
+    let viewMode = {
+        display: 'flex',
+        flexWrap: ' nowrap',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: "600px",
+        flexGrow: '0'
+    };
     let editMode = {};
 
     if(editable){
@@ -39,9 +46,17 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
 
     const completeStyled = {
         fontStyle: 'italic',
-        color: '#595959',
         opacity: 0.4,
-        textDecoration: 'line-through'
+        textDecoration: 'line-through',
+        textAlign: 'left',
+        maxWidth: '600px',
+        marginRight: 'auto'
+
+
+    }
+    const inprogressStyled = {
+        textAlign: 'left',
+        marginRight: 'auto'
     }
 
     
@@ -49,16 +64,38 @@ export function TodoItem({ id, checked, title, handleChange, deleteTodo, setUpda
    
         <li className="item" key={id}>
             <div className="display-item" onDoubleClick={handleEditing} style={viewMode}>
-                <input 
+                 <div style={checked ? completeStyled : inprogressStyled}>
+                    {title}
+                </div> 
+
+                
+                {/* <input 
                 className="checkbox"
                 type="checkbox" 
                 checked={checked}
                 onChange={() => handleChange(id)}
-                />
-                <button onClick={() => deleteTodo(id)}>Delete</button>
-                <span style={checked ? completeStyled : null}>
-                    {title}
-                </span> 
+                /> 
+                */}
+
+                                                           
+                <div>
+                    {checked ?
+                    <label className="label" htmlFor="toggle"> 😃 </label>
+                    :
+                    <label className="label" htmlFor="toggle">✓</label>
+                     }
+                    <input 
+                    type="checkbox" 
+                    id="toggle" 
+                    className="visually-hidden"
+                    checked={checked}
+                    onChange={() => handleChange(id)}
+                    />
+                    <div className="control-me"></div>
+                </div>
+               
+                <button onClick={() => deleteTodo(id)}><FaTrash style={{color: '#a72727', fontSize: '16px'}}/></button>
+               
             </div>
             <input 
                 type='text'

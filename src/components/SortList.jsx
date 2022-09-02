@@ -1,6 +1,6 @@
 
-import { useEffect } from 'react';
-import { TodoList } from './index'
+
+import { TodoList } from './index';
 
 
 
@@ -8,6 +8,12 @@ export const SortList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
 
     let columnTrue = []
     let columnFalse = []
+
+    const styledEmpty = {
+        paddingTop: '6rem',
+        fontFamily: 'cursive',
+        fontSize: '40px'
+    }
 
 
     for(let i = 0; i<todos.length; i++){
@@ -19,12 +25,12 @@ export const SortList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
     }
 
     return(
-        <main> 
+        <main style={{textAlign: 'center'}}> 
             {(columnFalse.length === 0 && columnTrue.length === 0) ?
-            (<h3 style={{paddingTop: '6rem'}}>Nothing left "todo"</h3>):
+            (<h3 style={styledEmpty} >Nothing "todo"</h3>):
             <section>
-            <div>
-                <h3>{(columnFalse.length > 0) ? "Inprogress: " : " "}</h3>
+            <div style={{textAlign: 'left'}} >
+                <h2 >{(columnFalse.length > 0) ? "Inprogress: " : " "}</h2>
                 <TodoList 
                     todos={columnFalse} 
                     handleChange={handleChange}
@@ -33,9 +39,9 @@ export const SortList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
                 />
             </div>
             
-            <div>
+            <div style={{textAlign: 'left'}} >
                 
-            <h3>{(columnTrue.length > 0) ? "Complete:" : " "} </h3> 
+            <h2>{(columnTrue.length > 0) ? "Complete:" : " "} </h2> 
                 <TodoList 
                     todos={columnTrue}
                     handleChange={handleChange}
@@ -50,11 +56,3 @@ export const SortList = ({ todos, handleChange, deleteTodo, setUpdate }) => {
     )
 }
 
-const Complete = ({isDone,todo}) => {
-    return(
-        <main>
-
-        </main>
-
-    )
-}

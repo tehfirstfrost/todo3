@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper{
+    position: relative;
+}
+.start{
+    position:absolute;
+    top: -10px;
+    left: 24px;
+}
+.logo{
+    height: 300px;
+    width: auto;
+}
+.btn{
+    position: absolute; 
+    right: 246px;
+    top: 190px;
+    font-size: 10px;
+    background-color: black;
+    flex-grow: 0;
+    border-radius: 50px;
+    
+}

@@ -102,7 +102,7 @@ export const TodoContainer = () =>{
                 <Header count={todos.length}/>
                 <InputTodo addTodoItem={addTodoItem}/>
                 <SearchItem search={search} setSearch={setSearch} />
-
+                <h5 style={{color: "#ececec"}}>Double click items to edit</h5>
                 {/* pretest */}
                 {/* {todos.length ? (
                 <TodoList

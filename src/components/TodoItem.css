@@ -1,7 +1,6 @@
 
 
 .item{
-    font-size: 1.2rem;
     list-style-type: none;
     padding: 17px 0px;
     border-bottom: 1px solid #eaeaea;
@@ -9,26 +8,51 @@
 }
 
 
-
-.checkbox{
-    /* margin-right: 15px; */
-    /* background: #e4edf5;
-    border: none;
-    cursor: pointer;
-    height: 30px;
-    width: 30px; */
-
-    width: 45px;                        
+/* .checkbox{
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 😃45px;                        
     height: 45px;                        
     clip-path: circle(46% at 50% 50%);  
+} */
+
+/* ///////////////////////////////   */
+
+.control-me::after {
+    content: "";
+    font-size: 50px;
 }
+#toggle:checked ~ .control-me::after {
+    content: "";
+}
+
+.label, label {
+    content: "";
+    margin-left: auto;
+    background: #e4edf5;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 30px;
+    
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -100vw;
+    
+    
+}
+
+/* //////////////////////////////   */
 
 .item button{
     font-size: 13px;
+    margin-left: 10px;
     background: #e4edf5;
+    flex-shrink: 0;
     border: none;
     cursor: pointer;
-    float: right;
+    /* float: right; */
     outline: none;
     border-radius: 100px;
     height: 50px;

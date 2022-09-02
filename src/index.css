@@ -8,7 +8,8 @@
 }
 body {
   background-color: lightblue;
-  font-family: 'Press Start 2P', "Segoe UI", sans-serif;
+  font-family:  sans-serif;
+  font-weight: bold;
   line-height: 1.4;
   color: #444;
   height: 100vh;
@@ -22,17 +23,16 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 600px;
- 
     margin: 0 auto;
 }
 
 .innner{
-    width: 100%;
+    width: 600px;
     padding: 8rem 10px 4rem;
 }
 
 .form-container{
-    width: 100%;
+    width: 600px;
     margin-bottom: 20px;
     display: flex;
     border-radius: calc(.5 * 100px);
@@ -60,6 +60,13 @@ body {
     cursor: pointer;
     font-weight: 600;
     margin-right: 10px;
+    
+}
+
+.form-submit svg{
+    color: rgb(28, 32, 32);
+    font-size: 20px;
+    margin-top: 2px;
 }
 
 .input-text, .form-submit{
@@ -69,6 +76,7 @@ body {
 }
 
 header{
+    font-family: "Press Start 2P";
     padding: 20px 0;
     line-height: 1.5em;
 }
@@ -76,8 +84,14 @@ header h1{
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 2rem;
+    margin-top: 1rem;
     line-height: 1em;
     color: #ececec;
-    /* text-transform: lowercase; */
     text-align: center;
+}
+
+header h3, .to-start{
+    text-align: center;
+    font-size: 15px;
+    color: #ececec;
 }
