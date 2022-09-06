@@ -19,22 +19,23 @@ export const TodoContainer = () =>{
     useEffect(() =>{
         const temp = JSON.stringify(todos);
         localStorage.setItem('todo', temp)
-    }, [todos])
+    }, [todos,])
 
-    useEffect(() =>{
+    // useEffect(() =>{
 
-    }, [setTodos])
+    // }, [setTodos])
 
     const handleChange = (id) =>{
         setTodos(prevState =>
             prevState.map(todo =>{
                 if(todo.id === id){
+                    console.log("handleChange fn matched, input id: ", id, "id :", todo.id )
                     return {
                         ...todo,
                         completed: !todo.completed
                     }
                 }
-                // console.log("handleChange fn, input: ", id)
+                console.log("handleChange fn, input: ", id)
             return todo
         }))
     }
@@ -55,8 +56,8 @@ export const TodoContainer = () =>{
             completed: false
         }
         setTodos([newTodo, ...todos])
-        console.log(todos)
-        // console.log("addTodoItem fn, input: ", title)
+        // console.log(todos)
+        console.log("addTodoItem fn, input: ", title)
     }
 
     const setUpdate = (updatedTitle, id) => {
@@ -71,12 +72,14 @@ export const TodoContainer = () =>{
         )
     }
 
-
+    const counter = todos.filter(todo => todo.completed === false)
+    console.log("counter",counter.length)
 
     return(
         <div className="container">
             <div className="inner">
-                <Header count={todos.length}/>
+                {/* <Header count={todos.length}/> */}
+                <Header count={counter.length}/>
                 <InputTodo addTodoItem={addTodoItem}/>
                 <SearchItem search={search} setSearch={setSearch} />
                 <h5 style={{color: "#ececec"}}>Double click items to edit</h5>
